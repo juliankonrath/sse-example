@@ -16,12 +16,14 @@ router.get('/sse', (req, res, next) => {
 	const intervalID = setInterval(() => {
 		if (i === 0) {
 			sse.write(i, 'hallo message');
+		} else if (i === 6) {
+			sse.write(i, 'hallo result', 'result');
 		} else {
 			sse.write(i, 'hallo ' + messages[i-1] + ' ping', 'ping');
 		}
 
 		i = i + 1;
-		if (i === 6) {
+		if (i === 7) {
 			clearInterval(intervalID);
 		}
 	}, 1000)
