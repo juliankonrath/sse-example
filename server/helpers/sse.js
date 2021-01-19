@@ -31,7 +31,6 @@ function SSE(response, options) {
 
 	// Set time before retry if connection error.
 	// This need to be set before sending any message.
-
 	response.write(`retry: ${options.retry}\n`);
 }
 

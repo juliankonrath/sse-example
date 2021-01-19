@@ -15,13 +15,13 @@ router.get('/sse', (req, res, next) => {
 	let i = 0;
 	const intervalID = setInterval(() => {
 		if (i === 0) {
-			sse.write(i, 'hallo' + i);
+			sse.write(i, 'hallo message');
 		} else {
-			sse.write(i, 'hallo' + i, 'ping');
+			sse.write(i, 'hallo ' + messages[i-1] + ' ping', 'ping');
 		}
 
 		i = i + 1;
-		if (i === 10) {
+		if (i === 6) {
 			clearInterval(intervalID);
 		}
 	}, 1000)
